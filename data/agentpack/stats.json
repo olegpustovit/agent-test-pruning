@@ -137,6 +137,25 @@
      "p_sign": 1.0
     }
    },
+   "m-practice": {
+    "seeds": 1,
+    "mutants": 0.49396471680594245,
+    "mutants_ci95": [
+     0.4623955431754875,
+     0.5255338904363974
+    ],
+    "bugs": 0.8181818181818182,
+    "vs_coverage_mutants": {
+     "only_this": 96,
+     "only_coverage": 195,
+     "p_sign": 6.639325850380055e-09
+    },
+    "vs_coverage_bugs": {
+     "only_this": 5,
+     "only_coverage": 0,
+     "p_sign": 0.0625
+    }
+   },
    "m-reach-only": {
     "seeds": 1,
     "mutants": 0.5264623955431755,
@@ -360,6 +379,25 @@
      "p_sign": 0.125
     }
    },
+   "m-practice": {
+    "seeds": 1,
+    "mutants": 0.6768802228412256,
+    "mutants_ci95": [
+     0.6480965645311049,
+     0.7038068709377902
+    ],
+    "bugs": 0.8181818181818182,
+    "vs_coverage_mutants": {
+     "only_this": 66,
+     "only_coverage": 145,
+     "p_sign": 5.575531439627265e-08
+    },
+    "vs_coverage_bugs": {
+     "only_this": 4,
+     "only_coverage": 0,
+     "p_sign": 0.125
+    }
+   },
    "m-reach-only": {
     "seeds": 1,
     "mutants": 0.6778087279480037,
@@ -576,6 +614,25 @@
      "only_this": 34,
      "only_coverage": 118,
      "p_sign": 4.623806648239508e-12
+    },
+    "vs_coverage_bugs": {
+     "only_this": 2,
+     "only_coverage": 0,
+     "p_sign": 0.5
+    }
+   },
+   "m-practice": {
+    "seeds": 1,
+    "mutants": 0.7632311977715878,
+    "mutants_ci95": [
+     0.7372330547818013,
+     0.787372330547818
+    ],
+    "bugs": 0.8181818181818182,
+    "vs_coverage_mutants": {
+     "only_this": 34,
+     "only_coverage": 119,
+     "p_sign": 2.9629797823733012e-12
     },
     "vs_coverage_bugs": {
      "only_this": 2,
