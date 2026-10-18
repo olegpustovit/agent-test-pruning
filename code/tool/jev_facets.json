@@ -1,0 +1,75 @@
+{
+ "rules": [
+  "Describe only what this test's assertions prove. Do not guess what the author intended.",
+  "The parser_facts are counted from the code and are correct. Use them.",
+  "Assertions can live in a helper the test calls. Read the helpers from the same file before you answer that a test asserts nothing."
+ ],
+ "facets": [
+  {
+   "name": "oracle",
+   "goal": "Say what the assertions of this test check. Choose the option that covers the strongest assertion in the test.",
+   "options": {
+    "outcome": "A result produced by running real product code: a return value, a response, stored state, a raised domain error, rendered output, a parsed or computed value.",
+    "boundary_effect": "What the product sent to a system outside it, recorded by a fake of that outside system, with the content checked (a message, a request to a third party, an event and its properties). A test that only checks the outside system was called, or called once, is 'interaction'.",
+    "interaction": "Only that a patched function, method or collaborator inside the same product was called, not called, or called with certain arguments. No result of real code is checked.",
+    "wording": "That one source file, template, document or configuration file contains or lacks a string or pattern. The file is read as text and searched.",
+    "repo_rule": "A rule that must hold across many files or modules, found by scanning or importing them: package boundaries, forbidden imports, every command is registered, two generated artefacts agree.",
+    "definition": "That a constant, enum member, default value, field list, type or config key equals what its own definition says. The test restates a definition and runs no logic.",
+    "no_error": "A validator or guard function is called with a specific, deliberately built input, and the test passes when it raises nothing. Use this only when raising or not raising is that function's whole output. A test that calls code and checks nothing is 'nothing'.",
+    "nothing": "Nothing meaningful: no assertion in the test or its helpers, or only that a value exists or has a type."
+   }
+  },
+  {
+   "name": "subject",
+   "goal": "Say what kind of thing this test exercises.",
+   "options": {
+    "public_behaviour": "Behaviour a user, API client, operator or another module can observe: a command, a service or domain function, a handler, permission rules, a parser or calculation with real inputs.",
+    "internal_detail": "A private helper, an internal step, internal call order, log wording, or internal data layout that could change in a refactor with no behaviour change.",
+    "repo_tooling": "Repository tooling and not the product: CI workflows and their scripts, lint rules, agent configuration, hooks, developer scripts, documentation.",
+    "test_support": "Test fixtures, fakes, test harness or evaluation tooling."
+   }
+  },
+  {
+   "name": "real_code",
+   "goal": "Say where the values the test asserts on come from.",
+   "options": {
+    "real": "From real product code. Mocks, if any, stand in only for things outside the product (network, clock, file system of another program, third-party service).",
+    "partly_mocked": "From real product code, but some collaborators inside the product are patched, so a thinner slice of the product runs.",
+    "from_mocks": "Mostly from values the test configured its own mocks or fakes to return.",
+    "no_code_run": "No product code runs; the values come from reading files or constants."
+   }
+  },
+  {
+   "name": "risk_area",
+   "goal": "Say whether the thing this test checks is itself an access, money or data-loss rule.",
+   "options": {
+    "protected": "The rule the test checks is itself about access, money, security or not losing data.",
+    "ordinary": "Anything else."
+   }
+  }
+ ],
+ "weights": {
+  "oracle": {
+   "outcome": 1.0,
+   "boundary_effect": 0.85,
+   "repo_rule": 0.7,
+   "no_error": 0.45,
+   "interaction": 0.15,
+   "definition": 0.08,
+   "wording": 0.08,
+   "nothing": 0.0
+  },
+  "real_code": {
+   "real": 1.0,
+   "partly_mocked": 0.55,
+   "from_mocks": 0.15,
+   "no_code_run": 0.35
+  },
+  "subject": {
+   "public_behaviour": 1.0,
+   "internal_detail": 0.45,
+   "repo_tooling": 0.35,
+   "test_support": 0.25
+  }
+ }
+}

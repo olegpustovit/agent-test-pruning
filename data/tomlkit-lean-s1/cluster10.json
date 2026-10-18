@@ -1,0 +1,63 @@
+{
+ "files": 9,
+ "budget": 10.0,
+ "rows": {
+  "order-coverage": {
+   "weighted_share": 0.7623762376237624,
+   "ci95": [
+    0.6535855471220746,
+    0.8695708786231884
+   ]
+  },
+  "order-judge": {
+   "weighted_share": 0.5841584158415841,
+   "ci95": [
+    0.515302257266543,
+    0.6521739130434783
+   ],
+   "files_more": 1,
+   "files_less": 7,
+   "p_sign_files": 0.0703125
+  },
+  "order-m-jev-usefulness": {
+   "weighted_share": 0.5297029702970297,
+   "ci95": [
+    0.4011441904922549,
+    0.6175115207373272
+   ],
+   "files_more": 1,
+   "files_less": 7,
+   "p_sign_files": 0.0703125
+  },
+  "keep-ask2": {
+   "weighted_share": 0.5396039603960396,
+   "ci95": [
+    0.41842954307638647,
+    0.6407009657009656
+   ],
+   "files_more": 0,
+   "files_less": 8,
+   "p_sign_files": 0.0078125
+  },
+  "order-m-method": {
+   "weighted_share": 0.6831683168316832,
+   "ci95": [
+    0.5494437939110071,
+    0.8095238095238095
+   ],
+   "files_more": 1,
+   "files_less": 7,
+   "p_sign_files": 0.0703125
+  },
+  "order-random-1": {
+   "weighted_share": 0.4504950495049505,
+   "ci95": [
+    0.33128738496932514,
+    0.5921124141876429
+   ],
+   "files_more": 0,
+   "files_less": 8,
+   "p_sign_files": 0.0078125
+  }
+ }
+}

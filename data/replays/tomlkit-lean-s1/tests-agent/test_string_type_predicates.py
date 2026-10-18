@@ -1,0 +1,21 @@
+import pytest
+
+from tomlkit.items import StringType
+
+
+EXPECTED = {
+    StringType.SLB: (True, False, True, False),
+    StringType.MLB: (True, False, False, True),
+    StringType.SLL: (False, True, True, False),
+    StringType.MLL: (False, True, False, True),
+}
+
+
+@pytest.mark.parametrize("st", list(StringType))
+def test_string_type_predicates(st):
+    assert (
+        st.is_basic(),
+        st.is_literal(),
+        st.is_singleline(),
+        st.is_multiline(),
+    ) == EXPECTED[st]

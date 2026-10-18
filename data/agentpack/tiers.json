@@ -1,0 +1,3 @@
+[{"match": "(^|/)(scripts|tools|testdata|docs|examples)/|testutil|testhelp", "weight": 0.35},
+ {"match": "^internal/(resolve|lockfile|sync|manifest|harness|mcp)/", "weight": 3.0},
+ {"match": ".", "weight": 1.0}]
