@@ -1,23 +1,29 @@
-# Which tests to keep when a coding agent writes the test suite: scripts and data
+# Pruning and Scheduling Test Suites with Structured Assessment and CI History
 
-Artifacts for the paper "Which Tests to Keep When a Coding Agent Writes the Test Suite" (SANER 2027 Industrial Track submission). Everything here comes from public projects and from the author's own open-source tool agentpack.
+Reproduction material for an evaluated test-maintenance method. The manuscript is being prepared for SANER 2027; publication or acceptance is not claimed.
 
-## What is here
-- `code/harness/`
-  - `replay.py`: replays the last 120 commits that change product code of a Python library. At each commit, Claude Code is asked to add tests for the change under `tests/agent`; the product code equals upstream at every step.
-  - `mutate.py`, `faults.py`: planted bugs (eight mutation operators) and real bugs (reverted bug-fix commits), with per-test kill sets.
-  - `stats.py`, `cluster_stats.py`: shares kept at a budget, bootstrap intervals, sign tests by mutant and by file.
-  - `measure_subjects.py`, `measure_own.py`, `analyze.py`.
-- `code/tool/`
-  - `testprune.py`: the signals as orders (coverage, risk reach, judge, combined order, CI order, CI floor via `blend`/orders), grading, evaluation.
-  - `jev_typed.py` + `jev.py` + `jev_facets.json`: the four facet questions asked of Jev (TypeSafe System One, jev-1.13.0) per test. Needs `JEV_API_KEY`.
-  - `ci_mine.py`: catch labels from GitHub Actions history.
-  - `go_adapter.py` + `gohelper/`: the same inputs for a Go module.
-  - `ts_adapter.py` + `tshelper/`: static import reach for a TypeScript/Bun project.
-  - `rubric.md`: the grading rubric.
-- `SUBJECTS.md`: the subject selection rule, written before any measurement, and its outcome.
-- `data/<subject>/`: reach (per-test coverage), mutants and kill sets (`mut/`), real bugs (`flt/`), grades (`grades-*.jsonl`, `jev-facets.jsonl`), orders (`order-*.json`, `keep-ask2.json`), results (`stats.json`, `cluster10.json`); agentpack also has `ci-labels.jsonl` and `tiers.json`.
-- `data/replays/<run>/`: each replay's configuration, per-step log (`state.jsonl`, including agent cost) and the agent-written tests (`tests-agent/`).
+The current evidence is **review-supplement-v4.tar.gz** in the [versioned evaluation release](https://github.com/olegpustovit/agent-test-pruning/releases/tag/saner-2027-evaluation-2026-10-19). Download the v4 asset for the exact evaluated implementation and inputs. The release tag and files on the repository branch represent earlier development states.
 
-## Running
-Python scripts carry inline metadata; run them with `uv run <script>.py --help`. Replays need Claude Code logged in; grading needs Claude Code; Jev needs a TypeSafe key.
+## Current evaluation
+
+The method separates permanent removal from less frequent execution. Removal uses structured assessment to nominate candidates, contextual review to identify retained replacements, an independent review veto, protection and code-reach checks, and unchanged-source execution validation. A separate public-project case evaluates execution-frequency allocation using risk reach and CI history.
+
+The v4 archive contains public and generated source snapshots with upstream licenses, assessment and decision records, frozen selections, raw mutation executions, repeated local timings, historical failure traces and verification scripts. The archive includes no confidential client/employer source or results and no venue-corpus full texts.
+
+## Verification
+
+Extract v4, enter `artifact-supplement-v4`, and run:
+
+```sh
+uv run verify_public_evidence.py
+```
+
+This offline check validates the manifest, reconstructs removal selections and execution order, verifies source-ordered mutation samples and reconstructs direct fault comparisons. It does not call models or execute the tested products. The archive README explains how to reproduce product executions in isolated copies and documents the limits of the measurements.
+
+v4 SHA-256: `2e30853dfc7a4f29933d7bceff933e6c5e35e8b5a5b605a3633086be4c1de9cf`.
+
+## Earlier material
+
+The v3 archive and branch files remain as development provenance. Earlier mutation scores are not certified for reuse because an interruption-attribution defect was identified. The revised manuscript uses the checked experiments in v4. Earlier Python replay and test-generation configuration records remain useful provenance, but should not be confused with the new selection and fault-outcome records.
+
+Python tools use inline dependency metadata and run through `uv run`. Repeating model-assisted assessment requires the respective model service credentials; verifying the saved decisions and results does not.
