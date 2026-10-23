@@ -1,0 +1,23 @@
+{
+  "manifest_files_verified": 2651,
+  "selection_checks": {
+    "boltons-always-s1": {
+      "full": 752,
+      "removed": 25,
+      "selections_reconstructed": 36
+    },
+    "tomlkit-always-s1": {
+      "full": 609,
+      "removed": 0,
+      "selections_reconstructed": 36
+    },
+    "tomlkit-lean-s1": {
+      "full": 459,
+      "removed": 0,
+      "selections_reconstructed": 36
+    }
+  },
+  "source_ordered_mutation_samples_verified": 2,
+  "direct_fault_comparisons_reconstructed": 18,
+  "scope": "Offline integrity and selection reconstruction; no hosted models or product tests executed."
+}

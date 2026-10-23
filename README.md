@@ -1,8 +1,12 @@
-# Pruning and Scheduling Test Suites with Structured Assessment and CI History
+# Test-suite pruning and scheduling experiment
 
-Reproduction material for an evaluated test-maintenance method. The manuscript is being prepared for SANER 2027; publication or acceptance is not claimed.
+Code and saved evaluation material for a test-maintenance method. The manuscript is being prepared for SANER 2027; publication or acceptance is not claimed.
 
 The current evidence is **review-supplement-v4.tar.gz** in the [versioned evaluation release](https://github.com/olegpustovit/agent-test-pruning/releases/tag/saner-2027-evaluation-2026-10-19). Download the v4 asset for the exact evaluated implementation and inputs. The release tag and files on the repository branch represent earlier development states.
+
+![Actual offline verification output for the v4 release archive](docs/demo/verification.png)
+
+The [capture notes](docs/demo/README.md) distinguish archive verification from rerunning the product experiments.
 
 ## Current evaluation
 
